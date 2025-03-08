@@ -19,7 +19,7 @@ const todoController = {
             const {userId} = req.params;
             const todo = new Todo();
             const todos = await todo.getTodosByUserId(userId);
-            res.status(200).json(todos);
+            res.status(200).json(todos || []);
         }catch(err){
             console.error(err);
             res.status(500).json({message: 'Error getting todos', err});

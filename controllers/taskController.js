@@ -61,9 +61,9 @@ const taskController = {
     async updateTask(req, res){
         try{
             const {taskId} = req.params;
-            const {title, description, dueDate, status} = req.body;
+            const {title, description, due_date, status} = req.body;
             const task = new Task();
-            const result = await task.updateTask(taskId, title, description, dueDate, status);
+            const result = await task.updateTask(taskId, title, description, due_date, status);
             if(!result){
                 return res.status(404).json({message: 'Task not found'});
             }
@@ -77,7 +77,7 @@ const taskController = {
         try{
             const {taskId} = req.params;
             const task = new Task();
-            await task.deleteTask(taskId);
+            const result = await task.deleteTask(taskId);
             if(!result){
                 return res.status(404).json({message: 'Task not found'});
             }

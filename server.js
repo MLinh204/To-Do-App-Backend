@@ -68,7 +68,7 @@ app.use('/api/users', userRoutes);
                 title VARCHAR(255) NOT NULL,
                 description TEXT,
                 due_date DATE,
-                status ENUM('pending', 'in progress', 'completed') DEFAULT 'pending',
+                status ENUM('pending', 'in progress','blocked', 'cancelled' ,'completed') DEFAULT 'pending',
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (todo_id) REFERENCES todos(id)
             )
