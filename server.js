@@ -27,16 +27,6 @@ app.use('/api/users', userRoutes);
 
 (async () => {
     try{
-        const initialConnection = await mysql.createConnection({
-            host: 'localhost',
-            user: 'root',
-            password: 'yhZApge06HwfPspi',
-            port: 3306
-        });
-        await initialConnection.execute('CREATE DATABASE IF NOT EXISTS todo_app');
-        console.log('Database "todo_app" created or already exists');
-
-        await initialConnection.end();
         const connection = await dbPool.getConnection();
 
         await connection.execute(`
