@@ -24,6 +24,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/users', userRoutes);
+app.get("/", (req, res) => {
+    res.send("Server is running!");
+});
 
 (async () => {
     try{
