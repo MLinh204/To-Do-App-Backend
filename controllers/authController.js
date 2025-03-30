@@ -14,6 +14,7 @@ const authController = {
         return res.status(400).json({ message: 'User with this email already exists' });
       }
       const userId = await user.createUser(email, username, password);
+      console.log(userId);
       res.status(200).json({ userId });
     } catch (err) {
       console.error(err);
