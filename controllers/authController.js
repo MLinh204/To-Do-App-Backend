@@ -10,6 +10,7 @@ const authController = {
       const { email, username, password } = req.body;
       const user = new User();
       const existingUser = await user.getUserByEmail(email);
+      console.log("User from database:", existingUser);
       if (existingUser) {
         return res.status(400).json({ message: 'User with this email already exists' });
       }
